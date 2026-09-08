@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Building the Bridge</title>
+
+<meta name="theme-color" content="#2F6F63">
+<meta name="description" content="A categorization and language-skills practice tool.">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Bridge">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="app-header">
+    <h1>Building the Bridge</h1>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Main">
+    <button class="tab-btn active" data-tab="home" role="tab" aria-selected="true">Home</button>
+    <button class="tab-btn" data-tab="categories" role="tab" aria-selected="false">Categories</button>
+    <button class="tab-btn" data-tab="practice" role="tab" aria-selected="false">Practice</button>
+    <button class="tab-btn" data-tab="progress" role="tab" aria-selected="false">Progress</button>
+  </nav>
+
+  <main class="tab-panels">
+
+    <!-- HOME -->
+    <section id="tab-home" class="tab-panel active">
+      <div class="panel-header">
+        <p id="home-count" class="count-line"></p>
+        <div class="bulk-actions">
+          <button id="home-select-all" class="btn-link">Select all</button>
+          <button id="home-clear-all" class="btn-link">Clear all</button>
+        </div>
+      </div>
+      <ul id="skills-list" class="check-list"></ul>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section id="tab-categories" class="tab-panel">
+      <div class="panel-header">
+        <p id="categories-count" class="count-line"></p>
+        <div class="bulk-actions">
+          <button id="categories-select-all" class="btn-link">Select all</button>
+          <button id="categories-clear-all" class="btn-link">Clear all</button>
+        </div>
+      </div>
+      <ul id="categories-list" class="check-list"></ul>
+    </section>
+
+    <!-- PRACTICE -->
+    <section id="tab-practice" class="tab-panel">
+      <div class="operator-row">
+        <label for="operator-select">Who's running this</label>
+        <select id="operator-select">
+          <option value="Dad">Dad</option>
+          <option value="Mom">Mom</option>
+          <option value="Sister">Sister</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <p id="practice-progress-text" class="progress-text"></p>
+
+      <div id="practice-card-area" class="practice-card-area"></div>
+
+      <div id="practice-actions" class="result-actions">
+        <button data-result="independent" class="result-btn result-btn-independent">Independent</button>
+        <button data-result="prompted" class="result-btn result-btn-prompted">Prompted</button>
+        <button data-result="incorrect" class="result-btn result-btn-incorrect">Incorrect</button>
+        <button data-result="noresponse" class="result-btn result-btn-noresponse">No response</button>
+      </div>
+      <button id="practice-skip" class="btn-link skip-link">Skip without logging</button>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="tab-progress" class="tab-panel">
+      <p id="progress-summary" class="progress-summary"></p>
+      <div id="progress-pills" class="pill-row"></div>
+      <div id="progress-detail" class="progress-detail"></div>
+
+      <h2 class="log-heading">Session log</h2>
+      <div class="table-wrap">
+        <table id="progress-log-table">
+          <thead>
+            <tr><th>Date</th><th>Skill</th><th>Category</th><th>Prompt</th><th>Result</th><th>Who</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <button id="reset-progress-btn" class="btn-danger">Reset all saved progress</button>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
